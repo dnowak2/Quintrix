@@ -13,7 +13,7 @@ public class FileManager
 	private static InputFile userInput;
 	private static DataBaseFile dataBase;
 	
-	public static void main(String[] args)
+	public static void main(String[] args) throws NumberFormatException
 	{
 		input = new Scanner(System.in);
 		System.out.println("Welcome to File Reader");
@@ -59,28 +59,33 @@ public class FileManager
 	public static String filePath;
 	public static void csv(){
 		csv = new CSVFile();
-		filePath = "../../../testfiles/csvtestfile.csv";
+		filePath = "src/filereader/csvtestfile.csv";
 		csv.readFile(filePath);
+		csv.saveFile();
 	}
-	public static void pdf() {
+	public static void pdf(){
 		pdf = new PDFFile();
-		filePath = "../../../testfiles/pdftestfile.pdf";
+		filePath = "src/filereader/pdftestfile.pdf";
 		pdf.readFile(filePath);
+		pdf.saveFile();
 	}
 	public static void txt() {
 		txt = new TXTFile();
-		filePath = "../../../testfiles/txttestfile.txt";
+		filePath = "src/filereader/txttestfile.txt";
 		txt.readFile(filePath);
+		txt.saveFile();
 	}
 	public static void userInput() {
 		userInput = new InputFile();
 		String in = input.nextLine();
 		userInput.readFile(in);
+		userInput.saveFile();
 	}
 	public static void dataBase() {
 		dataBase = new DataBaseFile();
 		String jdbcURL = "";
 		dataBase.readFile(jdbcURL);
+		dataBase.saveFile();
 	}
 	public static boolean isValidInput(String menuOption)
 	{
